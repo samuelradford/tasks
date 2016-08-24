@@ -1,2 +1,2 @@
-# tasks
-Task Application
+# Tasks
+Task App
