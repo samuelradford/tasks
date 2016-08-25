@@ -29,8 +29,8 @@ def menu():
 	if command == 'q':
 		quit()
 	if command == 'n':
-		print("\n***** New Task List *****\n")
-		list_name = input("Please enter a title for your new list\n\n>")
+		clear_screen()
+		list_name = input("\n***** Enter a list name *****\n\n>")
 		new_task_list(list_name)
 
 # Show current list
@@ -51,8 +51,9 @@ def show_current_list(_list, list_name):
 def new_task_list(list_name):
 	_list = []
 	clear_screen()
-	print("\n***** {} *****\n\n".format(list_name))
-	print("--- Enter item below ---\n\n")
+	print("\n	Commands:\n	'show' - Show current list items\n	'quit' - Exit app\n")
+	print("\n***** {} *****\n".format(list_name))
+	print("Enter items..")
 	while True:
 		task = input("> ")
 		if task == 'show':
