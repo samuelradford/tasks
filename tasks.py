@@ -16,25 +16,27 @@ def clear_screen():
 # quit app function
 def quit():
 	clear_screen()
-	print("\n***** Tasks *****\n\nThank you for using Tasks, goodbye!\n\n")
+	print("\n##########\nTasks\n##########\n\nThank you for using Tasks, goodbye!\n")
 	sys.exit()
 
 # main menu
 def menu():
 	clear_screen()
-	print("\n***** Tasks *****\n")
-	print("Type 'n' to create a new task list\nType 'q' to exit\n\n    ** WARNING: you will lose all entered data if you exit\n")
-
+	print("\n##########\nTasks\n##########\n")
+	print("Type 'new' to create a new task list\nType 'quit' to exit\n\n** WARNING: you will lose all entered data if you exit\n")
 	command = input("> ").lower()
-	if command == 'q':
+	if command == 'quit':
 		quit()
-	if command == 'n':
+	elif command == 'new':
 		clear_screen()
-		list_name = input("\n***** Enter a list name *****\n\n>")
+		list_name = input("\n----- Enter a list name -----\n\n>")
 		new_task_list(list_name)
+	else:
+		menu()
 
 # Show current list
 def show_current_list(_list, list_name):
+	clear_screen()
 	num = 0
 	print("\n\n--- Currently in {} ---\n\n".format(list_name))
 	for i in _list:
@@ -51,8 +53,8 @@ def show_current_list(_list, list_name):
 def new_task_list(list_name):
 	_list = []
 	clear_screen()
-	print("\n	Commands:\n	'show' - Show current list items\n	'quit' - Exit app\n")
-	print("\n***** {} *****\n".format(list_name))
+	print("\nCommands:\n'show' - Show current list items\n'quit' - Exit app\n")
+	print("\n----- {} -----\n".format(list_name))
 	print("Enter items..")
 	while True:
 		task = input("> ")
